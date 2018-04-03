@@ -58,7 +58,7 @@ class Ordercreate(BasePage):
     def click_confirmCreateOrder(self):
         self.click(self.confirmCreateOrder)
     def get_tips(self):
-        tips = self.(buzhi)
+        tips = self.fff
 
 
 
