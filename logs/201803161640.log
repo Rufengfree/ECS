@@ -1,0 +1,41 @@
+2018-03-16 16:40:00,029 - BrowserEngine - INFO - You had select Chrome browser.
+2018-03-16 16:40:00,030 - BrowserEngine - INFO - The test server url is: http://1111.1dadan.com
+2018-03-16 16:40:05,701 - BrowserEngine - INFO - Starting Chrome browser.
+2018-03-16 16:40:08,623 - BrowserEngine - INFO - Open url: http://1111.1dadan.com
+2018-03-16 16:40:09,823 - BrowserEngine - INFO - Maximize the current window.
+2018-03-16 16:40:09,825 - BrowserEngine - INFO - Set implicitly wait 10 seconds.
+2018-03-16 16:40:09,914 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-16 16:40:10,056 - BasePage - INFO - Had type ' ecs1105 ' in inputBox
+2018-03-16 16:40:10,118 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-16 16:40:10,251 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-16 16:40:16,753 - BasePage - INFO - Had take screenshot and save to folder : /screenshots
+2018-03-16 16:40:16,760 - BasePage - INFO - Current page title is 易打单 | 批量打印
+2018-03-16 16:40:16,813 - BasePage - INFO - Had find the element '  ' successful by id via value: topNavBtn 
+2018-03-16 16:40:16,930 - BasePage - INFO - mouse suspension on the 
+2018-03-16 16:40:17,931 - BasePage - INFO - Sleep for 1 seconds
+2018-03-16 16:40:17,993 - BasePage - INFO - Had find the element ' 退出登录 ' successful by id via value: logoutBtn 
+2018-03-16 16:40:18,715 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-16 16:40:18,843 - BasePage - INFO - Had type ' 110140029 ' in inputBox
+2018-03-16 16:40:18,874 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-16 16:40:18,995 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-16 16:40:58,224 - BrowserEngine - INFO - You had select Chrome browser.
+2018-03-16 16:40:58,224 - BrowserEngine - INFO - The test server url is: http://1111.1dadan.com
+2018-03-16 16:41:03,283 - BrowserEngine - INFO - Starting Chrome browser.
+2018-03-16 16:41:05,129 - BrowserEngine - INFO - Open url: http://1111.1dadan.com
+2018-03-16 16:41:06,340 - BrowserEngine - INFO - Maximize the current window.
+2018-03-16 16:41:06,342 - BrowserEngine - INFO - Set implicitly wait 10 seconds.
+2018-03-16 16:41:06,420 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-16 16:41:06,591 - BasePage - INFO - Had type ' ecs1105 ' in inputBox
+2018-03-16 16:41:06,632 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-16 16:41:06,766 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-16 16:41:11,725 - BasePage - INFO - Had take screenshot and save to folder : /screenshots
+2018-03-16 16:41:11,733 - BasePage - INFO - Current page title is 易打单 | 批量打印
+2018-03-16 16:41:11,797 - BasePage - INFO - Had find the element '  ' successful by id via value: topNavBtn 
+2018-03-16 16:41:11,862 - BasePage - INFO - mouse suspension on the 
+2018-03-16 16:41:12,862 - BasePage - INFO - Sleep for 1 seconds
+2018-03-16 16:41:12,907 - BasePage - INFO - Had find the element ' 退出登录 ' successful by id via value: logoutBtn 
+2018-03-16 16:41:13,578 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-16 16:41:13,717 - BasePage - INFO - Had type ' 110140029 ' in inputBox
+2018-03-16 16:41:13,752 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-16 16:41:13,872 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-16 16:41:18,027 - BasePage - INFO - Had take screenshot and save to folder : /screenshots

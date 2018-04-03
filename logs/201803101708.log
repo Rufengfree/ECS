@@ -1,0 +1,6 @@
+2018-03-10 17:08:15,614 - BrowserEngine - INFO - You had select Chrome browser.
+2018-03-10 17:08:15,614 - BrowserEngine - INFO - The test server url is: http://1111.1dadan.com
+2018-03-10 17:08:20,772 - BrowserEngine - INFO - Starting Chrome browser.
+2018-03-10 17:08:22,365 - BrowserEngine - INFO - Open url: http://1111.1dadan.com
+2018-03-10 17:08:23,588 - BrowserEngine - INFO - Maximize the current window.
+2018-03-10 17:08:23,589 - BrowserEngine - INFO - Set implicitly wait 10 seconds.

@@ -1,0 +1,20 @@
+2018-03-19 12:27:27,994 - BrowserEngine - INFO - You had select Chrome browser.
+2018-03-19 12:27:27,994 - BrowserEngine - INFO - The test server url is: http://1111.1dadan.com
+2018-03-19 12:27:33,049 - BrowserEngine - INFO - Starting Chrome browser.
+2018-03-19 12:27:33,951 - BrowserEngine - INFO - Open url: http://1111.1dadan.com
+2018-03-19 12:27:35,243 - BrowserEngine - INFO - Maximize the current window.
+2018-03-19 12:27:35,245 - BrowserEngine - INFO - Set implicitly wait 10 seconds.
+2018-03-19 12:27:35,306 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-19 12:27:35,444 - BasePage - INFO - Had type ' ecs1105 ' in inputBox
+2018-03-19 12:27:35,504 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-19 12:27:35,612 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-19 12:27:42,384 - BasePage - INFO - Had find the element ' 手工建单 ' successful by id via value: createOrderBtn 
+2018-03-19 12:27:42,717 - BasePage - INFO - The element ' 手工建单 ' was clicked.
+2018-03-19 12:27:45,779 - BasePage - INFO - Had find the element '  ' successful by x via value: //*[@id="createOrderTPL"]/form/div[1]/div[2]/div/div[1]/div[2]/div[1]/input 
+2018-03-19 12:27:45,977 - BasePage - INFO - Had type ' 张无忌 ' in inputBox
+2018-03-19 12:27:46,321 - BasePage - INFO - Had type ' 14726967584 ' in inputBox
+2018-03-19 12:27:46,511 - BasePage - INFO - Had type ' 湖南省 ' in inputBox
+2018-03-19 12:27:46,675 - BasePage - INFO - Had type ' 长沙市 ' in inputBox
+2018-03-19 12:27:46,870 - BasePage - INFO - Had type ' 岳麓区 ' in inputBox
+2018-03-19 12:27:46,944 - BasePage - INFO - Had find the element '  ' successful by x via value: //*[@id="address"] 
+2018-03-19 12:27:47,134 - BasePage - INFO - Had type ' 岳麓大道569号 ' in inputBox

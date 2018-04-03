@@ -1,0 +1,12 @@
+2018-03-10 18:21:41,856 - BrowserEngine - INFO - You had select Chrome browser.
+2018-03-10 18:21:41,857 - BrowserEngine - INFO - The test server url is: http://1111.1dadan.com
+2018-03-10 18:21:47,452 - BrowserEngine - INFO - Starting Chrome browser.
+2018-03-10 18:21:48,248 - BrowserEngine - INFO - Open url: http://1111.1dadan.com
+2018-03-10 18:21:49,462 - BrowserEngine - INFO - Maximize the current window.
+2018-03-10 18:21:49,479 - BrowserEngine - INFO - Set implicitly wait 10 seconds.
+2018-03-10 18:21:49,565 - BasePage - INFO - Had find the element '  ' successful by id via value: userName 
+2018-03-10 18:21:49,735 - BasePage - INFO - Had type ' ecs1105 ' in inputBox
+2018-03-10 18:21:49,778 - BasePage - INFO - Had find the element '  ' successful by id via value: passWord 
+2018-03-10 18:21:49,885 - BasePage - INFO - Had type ' 1qaz2wsx ' in inputBox
+2018-03-10 18:22:12,518 - BasePage - INFO - Had take screenshot and save to folder : /screenshots
+2018-03-10 18:22:12,524 - BasePage - INFO - Current page title is Ò×´òµ¥
