@@ -30,12 +30,13 @@ class createorder(unittest.TestCase):
 
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('ecs1105')
+        loginpage.type_username('ecs0718')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
-        time.sleep(4)
+        time.sleep(2)
         #初始化订单新建页面
         ordercreatepage = Ordercreate(self.driver)
+        time.sleep(3)
         ordercreatepage.click_createOrderBtn()
         time.sleep(3)
         ordercreatepage.type_receiverName('张无忌')
@@ -46,6 +47,13 @@ class createorder(unittest.TestCase):
         ordercreatepage.type_receiverAddress('岳麓大道569号')
         ordercreatepage.type_goodsName('自动化测试自动添加商品')
         ordercreatepage.click_confirmCreateOrder()
+        tips = ordercreatepage.get_tips()
+        try:
+            assert u"新建订单成功" in tips
+            print('Assertion test pass.')
+        except Exception as e:
+            print('Assertion test fail.', format(e))
+
 
 if __name__=='__main__':
     unittest.main()

@@ -6,7 +6,7 @@ from framework.base_page import BasePage
 
 
 class Ordercreate(BasePage):
-    createOrderBtn = 'id=>createOrderBtn'     #新建订单按钮
+    createOrderBtn = 'x=>//*[@id="createOrderBtn"]'     #新建订单按钮
     receiverName = 'x=>//*[@id="createOrderTPL"]/form/div[1]/div[2]/div/div[1]/div[2]/div[1]/input'    #收件人姓名
     receiverPhone = 'name=>receiverPhone'    #收件人电话
     receiverMobile = 'name=>receiverMobile'     #收件人手机
@@ -58,7 +58,9 @@ class Ordercreate(BasePage):
     def click_confirmCreateOrder(self):
         self.click(self.confirmCreateOrder)
     def get_tips(self):
-        tips = self.fff
+        tips = self.get_text(self.createSuccess)
+        return tips
+
 
 
 
