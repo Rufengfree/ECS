@@ -48,7 +48,11 @@ class createorder(unittest.TestCase):
         ordercreatepage.type_goodsName('自动化测试自动添加商品')
         ordercreatepage.click_confirmCreateOrder()
         tips = ordercreatepage.get_tips()
-
+        try:
+            assert u"新建订单成功" in tips
+            print('Assertion test pass.')
+        except Exception as e:
+            print('Assertion test fail.', format(e))
 
 
 if __name__=='__main__':
