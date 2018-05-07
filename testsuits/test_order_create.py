@@ -30,13 +30,16 @@ class createorder(unittest.TestCase):
 
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('ecs0718')
+        loginpage.type_username('test_2')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)
         #初始化订单新建页面
         ordercreatepage = Ordercreate(self.driver)
         time.sleep(3)
+        #切换frame
+        frame1 = self.driver.find_element_by_id('container-i')
+        self.driver.switch_to_frame(frame1)
         ordercreatepage.click_createOrderBtn()
         time.sleep(3)
         ordercreatepage.type_receiverName('张无忌')

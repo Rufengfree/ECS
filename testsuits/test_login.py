@@ -29,7 +29,7 @@ class login(unittest.TestCase):
         :return:
         """
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('ecs1105')
+        loginpage.type_username('test_2')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)
