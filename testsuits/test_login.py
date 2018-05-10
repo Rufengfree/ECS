@@ -1,6 +1,9 @@
 # coding=utf-8
+
 import unittest
 import time
+
+from framework import logger
 from framework.browser_engine import BrowserEngine
 from pageobjects.login_page import Loginpage
 
@@ -23,30 +26,40 @@ class login(unittest.TestCase):
         """
         cls.driver.quit()
 
+
     def test_login_ecs(self):
+
         """
         这里一定要test开通，把测试逻辑代码封装到一个test开头的方法里。
         :return:
         """
+
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('test_2')
+        loginpage.type_username('ecs0314')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)
         loginpage.get_windows_img()
         try:
-            assert '易打单 | 批量打印' == loginpage.get_page_title()
-            print('Test pass.')
-        except Exception as e:
-            print('Test fail.',format(e))
-        loginpage.skin01_logout()
+            if '易打单' == loginpage.get_page_title():
+                self.assertTrue(True)
+                loginpage.skin01_logout()
+            elif '易打单 订单管理' == loginpage.get_page_title():
+                self.assertTrue(True)
+                self.driver.find_element_by_xpath('//*[@id="g_header"]/div[1]/div/a[2]/span/span').click()
+            else:
+                loginpage.get_windows_img()
+                self.assertTrue(False)
+        except BaseException as e:
+            self.assertTrue(False)
 
-    def test_login_ecs2(self):
-        loginpage = Loginpage(self.driver)
-        loginpage.type_username('110140029')
-        loginpage.type_password('1qaz2wsx')
-        self.driver.find_element_by_id('submit').click()
-        time.sleep(2)
-        loginpage.get_windows_img()
+    #def test_login_ecs2(self):
+    #    loginpage = Loginpage(self.driver)
+    #    loginpage.type_username('110140029')
+     #   loginpage.type_password('1qaz2wsx')
+       # self.driver.find_element_by_id('submit').click()
+      #  time.sleep(2)
+       # loginpage.get_windows_img()
+
 if __name__=='__main__':
     unittest.main()

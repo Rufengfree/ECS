@@ -24,9 +24,10 @@ class Ordercreate(BasePage):
     confirmCreateOrder = 'name=>confirmCreateOrder' #确定新建按钮
     createSuccess = 'x=>/html/body/div[10]/h2'  #新建成功提示
 
-
+    #点击手工新建按钮
     def click_createOrderBtn(self):
         self.click(self.createOrderBtn)
+    #输入收件人姓名
     def type_receiverName(self,text):
         self.type(self.receiverName,text)
     def type_receiverPhone(self,text):
@@ -60,7 +61,6 @@ class Ordercreate(BasePage):
     def get_tips(self):
         tips = self.get_text(self.createSuccess)
         return tips
-
 
 
 
