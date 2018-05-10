@@ -66,6 +66,7 @@ class LoginCase(unittest.TestCase):
     # self.driver.find_element_by_id('submit').click()
     #  time.sleep(2)
     # loginpage.get_windows_img()
+    #
 
 
 if __name__ == '__main__':
