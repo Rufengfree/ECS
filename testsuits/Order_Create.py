@@ -30,7 +30,7 @@ class createorder(unittest.TestCase):
 
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('test_2')
+        loginpage.type_username('ECS0630')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)
@@ -48,6 +48,7 @@ class createorder(unittest.TestCase):
         ordercreatepage.type_city('长沙市')
         ordercreatepage.type_district('岳麓区')
         ordercreatepage.type_receiverAddress('岳麓大道569号')
+        self.driver.find_element_by_xpath('//*[@id="createOrderTPL"]/form/div[1]/div[3]/ul/li[2]/a').click()
         ordercreatepage.type_goodsName('自动化测试自动添加商品')
         ordercreatepage.click_confirmCreateOrder()
         tips = ordercreatepage.get_tips()

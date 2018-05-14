@@ -24,3 +24,7 @@ class Loginpage(BasePage):
             pass
     def click_logout(self):
         self.click(self.logout)
+
+    def type_login_info(self,username,password):
+        self.type(self.username, username)
+        self.type(self.password, password)
