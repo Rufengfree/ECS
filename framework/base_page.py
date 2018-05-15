@@ -8,6 +8,8 @@ from selenium.webdriver import ActionChains
 
 from framework.logger import Logger
 
+from selenium.webdriver.support.select import Select
+
 # create a logger instance
 logger = Logger(logger="BasePage").getlog()
 
@@ -175,6 +177,10 @@ class BasePage(object):
         el = self.find_element(selector)
         return el.text
 
+    def select_drop_list(self,selector,value):
+        el = self.find_element(selector)
+        et = Select(el)
+        et.select_by_value(value)
 
 
 
