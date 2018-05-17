@@ -5,8 +5,9 @@
 import unittest
 import time
 from framework.browser_engine import BrowserEngine
+from framework.logger import Logger
 from pageobjects.login_page import Loginpage
-from pageobjects.order_create import Ordercreate
+from pageobjects.order_create_page import Ordercreate
 from  pageobjects.order_page import OrderPage
 
 class createorder(unittest.TestCase):
@@ -27,8 +28,8 @@ class createorder(unittest.TestCase):
         """
         cls.driver.quit()
 
-    def test_ordercreate(self):
-
+    def test_print_and_send(self):
+        logger = Logger(logger="BasePage").getlog()
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
         loginpage.type_username('ECS0630')
@@ -37,7 +38,7 @@ class createorder(unittest.TestCase):
 
         time.sleep(3)
         # 定义一个指定的订单
-        add = '广东省深圳市福田区自动化测试地址'
+        add = '湖南省长沙市岳麓区岳麓大道569号'
         tem = '顺丰热敏210mm'
         # 切换到当前frame
         frame1 = self.driver.find_element_by_id('container-i')
@@ -60,9 +61,48 @@ class createorder(unittest.TestCase):
         time.sleep(1)
         # 确定打印
         orderpage.yes_print()
+        time.sleep(4)
+        orderpage.click_consignBtn()
+        time.sleep(3)
+        # 验证发货合计信息是否正确
+        info1 = orderpage.get_consignment_info()
+        print(info1)
+        try:
+            if info1 == '发货合计：共1单':
+                self.assertTrue(True)
+                logger.info('选择一条订单进行发货')
+            else:
+                orderpage.get_windows_img()
+                self.assertTrue(False)
+        except BaseException as e:
+            self.assertTrue(False)
+        time.sleep(2)
+        #点击确定
+        orderpage.click_qdConsign()
+        time.sleep(4)
+        # 验证发货结果
+        info2 = orderpage.get_consignResult_info()
+        try:
+            if info2 == '共1单，成功1单，失败0单':
+                self.assertTrue(True)
+                logger.info('一条订单发货成功')
+            else:
+                orderpage.get_windows_img()
+                self.assertTrue(False)
+        except BaseException as e:
+            self.assertTrue(False)
+
+        # 关闭发货弹框
+        orderpage.click_confirm_close()
+        time.sleep(2)
+        # 跳出frame
+        self.driver.switch_to.default_content()
+        # 退出登录
+        loginpage.skin01_logout()
 
 
-        time.sleep(10)
+
+        time.sleep(3)
 
 
 

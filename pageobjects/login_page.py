@@ -5,8 +5,8 @@ class Loginpage(BasePage):
     username = 'id=>userName' #用户名
     password = 'id=>passWord' #密码
     loginbtn = 'id=>submit' #登录
-    topNavBtn = 'id=>topNavBtn' #用户信息按钮
-    skin01_logoutBtn = 'id=>logoutBtn' #退出按钮
+    topNavBtn = 'x=>//*[@id="topNavBtn"]' #用户信息按钮
+    skin01_logoutBtn = 'x=>//*[@id="logoutBtn"]/div/div[2]' #退出按钮
     logout = 'x=>//*[@id="g_header"]/div[1]/div/a[2]/span/span'
 
     def type_username(self,text):
