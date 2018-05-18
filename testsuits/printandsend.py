@@ -10,7 +10,7 @@ from pageobjects.login_page import Loginpage
 from pageobjects.order_create_page import Ordercreate
 from  pageobjects.order_page import OrderPage
 
-class createorder(unittest.TestCase):
+class Printsend(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """
@@ -99,20 +99,7 @@ class createorder(unittest.TestCase):
         self.driver.switch_to.default_content()
         # 退出登录
         loginpage.skin01_logout()
-
-
-
         time.sleep(3)
-
-
-
-
-
-
-
-
-
-
 
 if __name__=='__main__':
     unittest.main()

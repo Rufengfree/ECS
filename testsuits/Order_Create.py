@@ -8,7 +8,7 @@ from framework.browser_engine import BrowserEngine
 from pageobjects.login_page import Loginpage
 from pageobjects.order_create_page import Ordercreate
 
-class createorder(unittest.TestCase):
+class Createorder(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """
@@ -26,7 +26,7 @@ class createorder(unittest.TestCase):
         """
         cls.driver.quit()
 
-    def test_ordercreate(self):
+    def test_order_create(self):
 
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
@@ -57,6 +57,11 @@ class createorder(unittest.TestCase):
             print('Assertion test pass.')
         except Exception as e:
             print('Assertion test fail.', format(e))
+        time.sleep(1)
+        ordercreatepage.click_confirm()
+
+
+        time.sleep(5)
 
 
 if __name__=='__main__':

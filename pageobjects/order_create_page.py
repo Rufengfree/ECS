@@ -6,23 +6,24 @@ from framework.base_page import BasePage
 
 
 class Ordercreate(BasePage):
-    createOrderBtn = 'x=>//*[@id="createOrderBtn"]'     #新建订单按钮
-    receiverName = 'x=>//*[@id="createOrderTPL"]/form/div[1]/div[2]/div/div[1]/div[2]/div[1]/input'    #收件人姓名
-    receiverPhone = 'name=>receiverPhone'    #收件人电话
-    receiverMobile = 'name=>receiverMobile'     #收件人手机
-    province = 'name=>province'     #收件人省份
-    city = 'name=>city'    #收件人城市
-    district = 'name=>district'    #收件人区
-    receiverAddress = 'x=>//*[@id="address"]'    #收件人详细地址
-    codAmount = 'name=>codAmount'    #代收货款金额
-    sellerMessage = 'name=>sellerMessage'   #卖家备注
-    goodsNo = 'name=>goodsNo'      #商品编码
-    goodsName = 'x=>//*[@id="goodsInfoBody"]/tr/td[3]/input'     #商品标题
-    goodsProps = 'name=>goodsProps'    #销售属性
-    quantity = 'name=>quantity'     #商品数量
-    price = 'name=>price'    #商品单价
-    confirmCreateOrder = 'name=>confirmCreateOrder' #确定新建按钮
-    createSuccess = 'x=>/html/body/div[10]/h2'  #新建成功提示
+    createOrderBtn = 'x=>//*[@id="createOrderBtn"]'     # 新建订单按钮
+    receiverName = 'x=>//*[@id="createOrderTPL"]/form/div[1]/div[2]/div/div[1]/div[2]/div[1]/input'    # 收件人姓名
+    receiverPhone = 'name=>receiverPhone'    # 收件人电话
+    receiverMobile = 'name=>receiverMobile'     # 收件人手机
+    province = 'name=>province'     # 收件人省份
+    city = 'name=>city'    # 收件人城市
+    district = 'name=>district'    # 收件人区
+    receiverAddress = 'x=>//*[@id="address"]'    # 收件人详细地址
+    codAmount = 'name=>codAmount'    # 代收货款金额
+    sellerMessage = 'name=>sellerMessage'   # 卖家备注
+    goodsNo = 'name=>goodsNo'      # 商品编码
+    goodsName = 'x=>//*[@id="goodsInfoBody"]/tr/td[3]/input'     # 商品标题
+    goodsProps = 'name=>goodsProps'    # 销售属性
+    quantity = 'name=>quantity'     # 商品数量
+    price = 'name=>price'    # 商品单价
+    confirmCreateOrder = 'name=>confirmCreateOrder'  # 确定新建按钮
+    createSuccess = 'x=>/html/body/div[10]/h2'  # 新建成功提示
+    confirm = 'x=>/html/body/div[9]/div[7]/div/button'   # 确定，关掉新建成功提示
 
     #点击手工新建按钮
     def click_createOrderBtn(self):
@@ -61,6 +62,8 @@ class Ordercreate(BasePage):
     def get_tips(self):
         tips = self.get_text(self.createSuccess)
         return tips
+    def click_confirm(self):
+        self.click(self.confirm)
 
 
 
