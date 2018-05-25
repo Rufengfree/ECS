@@ -27,6 +27,19 @@ class OrderPage(BasePage):
     consignResult = 'x=>//*[@id="consignResult"]/div[1]'
     # 确定，关掉发货弹框
     confirm_close = 'x=>//*[@id="consignResult"]/div[4]/a'
+    # 添加模板按钮
+    add_templete = 'x=>//*[@id="addping_div"]/div[4]/form/ul/li[3]/a/i'
+    # 选择物流公司
+    Logistics_company = 'x=>//*[@id="select2-imgType_selectVal-container"]'
+
+
+    # 点击物流公司下拉框
+    def click_Logistics_company(self):
+        self.click(self.Logistics_company)
+
+    # 点击添加模板按钮
+    def click_add(self):
+        self.click(self.add_templete)
 
     # 点击打印订单
     def click_print(self):

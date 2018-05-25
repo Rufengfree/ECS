@@ -182,6 +182,12 @@ class BasePage(object):
         et = Select(el)
         et.select_by_value(value)
 
+    def find_ele(self,abc):
+        self.driver.find_element_by_xpath(abc)
+
+
+
+
 
 
 

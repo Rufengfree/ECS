@@ -11,8 +11,8 @@ from testsuits.printandsend import Printsend
 
 suite = unittest.TestSuite()
 suite.addTest(LoginCase('test_login_ecs'))
-# suite.addTest(Createorder('test_order_create'))
-# suite.addTest(Printsend('test_print_and_send'))
+suite.addTest(Createorder('test_order_create'))
+suite.addTest(Printsend('test_print_and_send'))
 
 
 if __name__ == '__main__':
