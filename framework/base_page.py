@@ -156,7 +156,7 @@ class BasePage(object):
         except NameError as e:
             logger.error("Failed to click the element with %s" % e)
 
-            # 或者网页标题
+            # 获取网页标题
 
     def get_page_title(self):
         logger.info("Current page title is %s" % self.driver.title)
@@ -172,20 +172,27 @@ class BasePage(object):
             logger.info('mouse suspension on the %s'%el.text)
         except BaseException as e:
             logger.error('mousu suspension is erro:%s'%e)
-
+    # 获取文本
     def get_text(self,selector):
         el = self.find_element(selector)
         return el.text
-
+    # 选择下拉框
     def select_drop_list(self,selector,value):
         el = self.find_element(selector)
         et = Select(el)
         et.select_by_value(value)
 
-    def find_ele(self,abc):
-        self.driver.find_element_by_xpath(abc)
-
-
+    # 判断元素是否存在，根据xpath
+    def is_element_exist(self,selector):
+        s = self.driver.find_element_by_xpath(xpath=selector)
+        if len(s) == 0:
+            print("元素未找到：%s"%selector)
+            return False
+        elif len(s) == 1:
+            return True
+        else:
+            print("找到%s元素：%s"%(len(s),selector))
+            return False
 
 
 

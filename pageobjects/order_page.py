@@ -27,18 +27,42 @@ class OrderPage(BasePage):
     consignResult = 'x=>//*[@id="consignResult"]/div[1]'
     # 确定，关掉发货弹框
     confirm_close = 'x=>//*[@id="consignResult"]/div[4]/a'
+# ------------------ 添加模板 -----------------------
     # 添加模板按钮
     add_templete = 'x=>//*[@id="addping_div"]/div[4]/form/ul/li[3]/a/i'
     # 选择物流公司
     Logistics_company = 'x=>//*[@id="select2-imgType_selectVal-container"]'
+    # 要添加的模版名称
+    templete_name = 'x=>//label[text()="顺丰热敏180mm"]'
+    # 运费付款方式
+    paytype = 'x=>//label[text()="寄付现结"]'
+    # 添加按钮
+    add = 'x=>//a[@id="saveWaybillTemplateBtn"]'
+    # 添加完成的确定按钮
+    button = 'x=>/html/body/div[10]/div[7]/div/button'
 
+    # 点击添加完成的确定按钮
+    def click_button(self):
+        self.click(self.button)
+
+    # 点击添加按钮
+    def click_add(self):
+        self.click(self.add)
+
+    # 选择运费付款方式
+    def click_paytype(self):
+        self.click(self.paytype)
+
+    # 点击要添加的模板
+    def click_templete(self):
+        self.click(self.templete_name)
 
     # 点击物流公司下拉框
     def click_Logistics_company(self):
         self.click(self.Logistics_company)
 
     # 点击添加模板按钮
-    def click_add(self):
+    def click_add_template(self):
         self.click(self.add_templete)
 
     # 点击打印订单
