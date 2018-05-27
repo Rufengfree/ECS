@@ -40,6 +40,12 @@ class OrderPage(BasePage):
     add = 'x=>//a[@id="saveWaybillTemplateBtn"]'
     # 添加完成的确定按钮
     button = 'x=>/html/body/div[10]/div[7]/div/button'
+    # 关掉添加模板弹窗
+    button1 = 'x=>//*[@id="expressSet_os"]/button'
+
+    # 关掉添加模板弹窗
+    def template_close(self):
+        self.click(self.button1)
 
     # 点击添加完成的确定按钮
     def click_button(self):

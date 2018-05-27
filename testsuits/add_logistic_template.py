@@ -43,41 +43,52 @@ class Createorder(unittest.TestCase):
         self.driver.switch_to_frame(frame1)
         # 页面初始化
         orderpage = OrderPage(self.driver)
-        # 点击新增模板按钮
-        orderpage.click_add_template()
-        time.sleep(2)
+        # 如果模板已经存在就判断用例失败
+        if orderpage.is_element_exist('//span[text()="顺丰热敏180mm"]'):
+            self.assertFalse(True)
+        # 如果模板不存在就添加模板
+        else:
+            # 点击新增模板按钮
+            orderpage.click_add_template()
+            time.sleep(2)
         # 点击物流公司下拉框
-        orderpage.click_Logistics_company()
-        time.sleep(3)
+            orderpage.click_Logistics_company()
+            time.sleep(3)
         # 选择物流公司
-        self.driver.find_element_by_xpath('//li[text()="%s"]'%companyname).click()
+            self.driver.find_element_by_xpath('//li[text()="%s"]'%companyname).click()
         # 选择要添加的模板
-        orderpage.click_templete()
+            orderpage.click_templete()
         # 选择运费付款方式
-        orderpage.click_paytype()
-        time.sleep(2)
+            orderpage.click_paytype()
+            time.sleep(2)
         # 点击添加按钮
-        orderpage.click_add()
-        time.sleep(2)
+            orderpage.click_add()
+            time.sleep(2)
         # 点击添加完成的确定按钮
-        orderpage.click_button()
-        time.sleep(2)
+            orderpage.click_button()
+        # 关掉添加模板的弹框
+            orderpage.template_close()
+            time.sleep(2)
+
         # 判断模板是否添加成功
-        s = orderpage.is_element_exist('//a[text()="顺丰热敏180mm"]')
-        try:
-            if s == True :
-                self.assertTrue(True)
-                logger.info("新添加模板名称存在，模板添加成功")
-            else:
-                orderpage.get_windows_img()
+            try:
+                if orderpage.is_element_exist('//span[text()="顺丰热敏180mm"]'):
+                    self.assertTrue(True)
+                    logger.info("新添加模板名称存在，模板添加成功")
+                else:
+                    orderpage.get_windows_img()
+                    self.assertTrue(False)
+            except BaseException as e:
                 self.assertTrue(False)
-        except BaseException as e:
-            self.assertTrue(False)
+
+        # 跳出frame
+        self.driver.switch_to.default_content()
+        # 退出登录
+        loginpage.skin01_logout()
+        time.sleep(3)
 
 
 
-
-        time.sleep(5)
 
 
 

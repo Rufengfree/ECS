@@ -1,7 +1,10 @@
 # coding=utf-8
 from framework.base_page import BasePage
+from framework.logger import Logger
+
 
 class Loginpage(BasePage):
+
     username = 'id=>userName' #用户名
     password = 'id=>passWord' #密码
     loginbtn = 'id=>submit' #登录
@@ -16,6 +19,7 @@ class Loginpage(BasePage):
     def click_loginbtn(self):   #点击登录按钮
         self.click(self.loginbtn)
     def skin01_logout(self):
+        logger = Logger(logger="BasePage").getlog()
         try:
             self.mouse_suspension(self.topNavBtn)
             self.sleep(1)
