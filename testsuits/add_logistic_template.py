@@ -43,7 +43,7 @@ class Addtemplate(unittest.TestCase):
         self.driver.switch_to_frame(frame1)
         # 页面初始化
         orderpage = OrderPage(self.driver)
-        # 如果模板已经存在就判断用例失败
+        # 如果模板已经存在就判断用例失败,然后直接退出
         if orderpage.is_element_exist('//span[text()="顺丰热敏180mm"]'):
             self.assertFalse(True)
         # 如果模板不存在就添加模板
