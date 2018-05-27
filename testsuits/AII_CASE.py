@@ -7,11 +7,17 @@ import unittest
 from common.report import report
 from testsuits.All_Node_Login import LoginCase
 from testsuits.Order_Create import Createorder
+from testsuits.add_logistic_template import Addtemplate
 from testsuits.printandsend import Printsend
 
 suite = unittest.TestSuite()
+# 所有节点登录
 suite.addTest(LoginCase('test_login_ecs'))
+# 新建订单
 suite.addTest(Createorder('test_order_create'))
+# 添加模板
+suite.addTest(Addtemplate('test_add_template'))
+# 打印发货
 suite.addTest(Printsend('test_print_and_send'))
 
 

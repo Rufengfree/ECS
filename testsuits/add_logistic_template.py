@@ -11,7 +11,7 @@ from pageobjects.order_create_page import Ordercreate
 from pageobjects.order_page import OrderPage
 
 
-class Createorder(unittest.TestCase):
+class Addtemplate(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """
@@ -86,11 +86,6 @@ class Createorder(unittest.TestCase):
         # 退出登录
         loginpage.skin01_logout()
         time.sleep(3)
-
-
-
-
-
 
 if __name__=='__main__':
     unittest.main()
