@@ -18,6 +18,10 @@ class BrowserEngine(object):
         # read the browser type from config.ini file, return the driver
 
     def open_browser(self, driver):
+        option = webdriver.ChromeOptions()
+        option.add_argument('headless')  # 静默模式
+
+
         config = configparser.ConfigParser()
         # file_path = os.path.dirname(os.getcwd()) + '/config/config.ini'
         file_path = os.path.dirname(os.path.abspath('.')) + '/config/config.ini'
@@ -32,7 +36,7 @@ class BrowserEngine(object):
             driver = webdriver.Firefox()
             logger.info("Starting firefox browser.")
         elif browser == "Chrome":
-            driver = webdriver.Chrome(self.chrome_driver_path)
+            driver = webdriver.Chrome(self.chrome_driver_path,chrome_options=option) # chrome_options=option,静默模式打开
             logger.info("Starting Chrome browser.")
         elif browser == "IE":
             driver = webdriver.Ie(self.ie_driver_path)

@@ -59,9 +59,11 @@ class Createorder(unittest.TestCase):
             print('Assertion test fail.', format(e))
         time.sleep(1)
         ordercreatepage.click_confirm()
-
-
-        time.sleep(5)
+        time.sleep(1)
+        # 跳出frame
+        self.driver.switch_to.default_content()
+        # 退出登录
+        loginpage.skin01_logout()
 
 
 if __name__=='__main__':

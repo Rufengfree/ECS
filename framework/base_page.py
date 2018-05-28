@@ -184,21 +184,16 @@ class BasePage(object):
 
     # 判断元素是否存在，根据xpath
     def is_element_exist(self,element):
-        flag = True
-        try:
-            self.driver.find_element_by_xpath(element)
-            print("元素存在")
-            return flag
-        except:
-            flag = False
-            print("元素不存在")
-            return flag
-
-
-
-
-
-
+        s = self.driver.find_elements_by_xpath(element)
+        if len(s) == 0:
+            print("元素未找到：%s"%element)
+            return False
+        elif len(s) == 1:
+            print("元素已找到")
+            return True
+        else:
+            print("找到%s个元素：%s"%(len(s),element))
+            return False
 
     @staticmethod
     def sleep(seconds):

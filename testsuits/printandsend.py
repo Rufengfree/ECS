@@ -38,7 +38,7 @@ class Printsend(unittest.TestCase):
 
         time.sleep(3)
         # 定义一个指定的订单
-        add = '湖南省长沙市岳麓区岳麓大道569号'
+        address = '湖南省长沙市岳麓区岳麓大道569号'
         tem = '顺丰热敏210mm'
         # 切换到当前frame
         frame1 = self.driver.find_element_by_id('container-i')
@@ -48,7 +48,7 @@ class Printsend(unittest.TestCase):
         # 页面实例化
         orderpage = OrderPage(self.driver)
         # 根据指定的收件地址选择订单
-        self.driver.find_element_by_xpath('//span[text()="%s"]'%add).click()
+        self.driver.find_element_by_xpath('//span[text()="%s"]'%address).click()
         # 点击打印快递单
         orderpage.click_print()
         time.sleep(1)
