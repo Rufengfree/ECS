@@ -39,7 +39,7 @@ class Printsend(unittest.TestCase):
         time.sleep(3)
         # 定义一个指定的订单
         address = '湖南省长沙市岳麓区岳麓大道569号'
-        tem = '顺丰热敏210mm'
+        tem = '顺丰热敏180mm'
         # 切换到当前frame
         frame1 = self.driver.find_element_by_id('container-i')
         self.driver.switch_to_frame(frame1)
@@ -47,6 +47,16 @@ class Printsend(unittest.TestCase):
 
         # 页面实例化
         orderpage = OrderPage(self.driver)
+        # 元素聚焦
+        #
+        # target = self.driver.find_element_by_xpath('//span[text()="%s"]'%address)
+        # self.driver.execute_script('arguments[0].scrollIntoView();',target)
+
+        # xpath_str = '//span[text()="湖南省长沙市岳麓区岳麓大道569号"]'
+        # self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_xpath(xpath_str))
+
+
+
         # 根据指定的收件地址选择订单
         self.driver.find_element_by_xpath('//span[text()="%s"]'%address).click()
         # 点击打印快递单
@@ -62,9 +72,21 @@ class Printsend(unittest.TestCase):
         # 确定打印
         orderpage.yes_print()
         time.sleep(4)
+        # 验证打印结果--------------------------------------------------------------------------------------------------
+        row1 = orderpage.element_row('张无忌')
+        x = '//*[@id="tableDiv"]/table/tbody[2]/tr[%s]/td[1]/i'%row1    # 打印标志
+        try:
+            if orderpage.is_element_exist(x):
+                self.assertTrue(True)
+                logger.info('打印成功')
+            else:
+                self.assertTrue(False)
+        except BaseException as e:
+            self.assertTrue(False)
+        # --------------------------------------------------------------------------------------------------------------
         orderpage.click_consignBtn()
         time.sleep(3)
-        # 验证发货合计信息是否正确
+        # 验证发货合计信息是否正确--------------------------------------------------------------------------------------
         info1 = orderpage.get_consignment_info()
         print(info1)
         try:
@@ -77,7 +99,7 @@ class Printsend(unittest.TestCase):
         except BaseException as e:
             self.assertTrue(False)
         time.sleep(2)
-        #点击确定
+        # 点击确定
         orderpage.click_qdConsign()
         time.sleep(4)
         # 验证发货结果
