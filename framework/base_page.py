@@ -194,6 +194,27 @@ class BasePage(object):
         else:
             print("找到%s个元素：%s"%(len(s),element))
             return False
+    # 已经元素已在列数，获取元素在列表所处的行数
+    def element_row(self,text):
+        list = []
+        s = self.driver.find_elements_by_xpath('//*[@id="tableDiv"]/table/tbody[2]/*')
+        print(s)
+        for i in range (1,len(s)+1):
+            xpath ='//*[@id="tableDiv"]/table/tbody[2]/tr[%s]/td[4]'%i
+            print(xpath)
+            try:
+                if self.is_element_exist(xpath):
+                    li = self.driver.find_element_by_xpath(xpath).text
+                    list.append(li)
+                else:
+                    list.append('')
+            except:
+                pass
+        print(list)
+        row = list.index(text)+1
+        return row
+
+
 
     @staticmethod
     def sleep(seconds):
