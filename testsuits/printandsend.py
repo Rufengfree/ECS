@@ -11,6 +11,7 @@ from pageobjects.order_create_page import Ordercreate
 from  pageobjects.order_page import OrderPage
 
 class Printsend(unittest.TestCase):
+
     @classmethod
     def setUpClass(cls):
         """
@@ -28,18 +29,26 @@ class Printsend(unittest.TestCase):
         """
         cls.driver.quit()
 
+
+
+
+
     def test_print_and_send(self):
+
+        #  参数   ----------------------------------
+        address = '张放1'
+        tem = '顺丰热敏180mm'
+        #   ----------------------------------------------
         logger = Logger(logger="BasePage").getlog()
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('ECS0630')
+        loginpage.type_username('12830222909')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
 
         time.sleep(3)
         # 定义一个指定的订单
-        address = '湖南省长沙市岳麓区岳麓大道569号'
-        tem = '顺丰热敏180mm'
+
         # 切换到当前frame
         frame1 = self.driver.find_element_by_id('container-i')
         self.driver.switch_to_frame(frame1)
@@ -47,18 +56,9 @@ class Printsend(unittest.TestCase):
 
         # 页面实例化
         orderpage = OrderPage(self.driver)
-        # 元素聚焦
-        #
-        # target = self.driver.find_element_by_xpath('//span[text()="%s"]'%address)
-        # self.driver.execute_script('arguments[0].scrollIntoView();',target)
-
-        # xpath_str = '//span[text()="湖南省长沙市岳麓区岳麓大道569号"]'
-        # self.driver.execute_script("arguments[0].scrollIntoView();", self.driver.find_element_by_xpath(xpath_str))
-
-
 
         # 根据指定的收件地址选择订单
-        self.driver.find_element_by_xpath('//span[text()="%s"]'%address).click()
+        self.driver.find_element_by_xpath('//td[text()="%s"]'%address).click()
         # 点击打印快递单
         orderpage.click_print()
         time.sleep(1)
@@ -73,7 +73,7 @@ class Printsend(unittest.TestCase):
         orderpage.yes_print()
         time.sleep(4)
         # 验证打印结果--------------------------------------------------------------------------------------------------
-        row1 = orderpage.element_row('张无忌')
+        row1 = orderpage.element_row('张放1')
         x = '//*[@id="tableDiv"]/table/tbody[2]/tr[%s]/td[1]/i'%row1    # 打印标志
         try:
             if orderpage.is_element_exist(x):

@@ -19,7 +19,7 @@ class BrowserEngine(object):
 
     def open_browser(self, driver):
         option = webdriver.ChromeOptions()
-        option.add_argument('headless')  # 静默模式
+        #option.add_argument('headless')  # 静默模式
 
 
         config = configparser.ConfigParser()

@@ -30,7 +30,7 @@ class Createorder(unittest.TestCase):
 
         # 初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('ECS0630')
+        loginpage.type_username('12830222909')
         loginpage.type_password('1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)

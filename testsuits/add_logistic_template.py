@@ -35,7 +35,7 @@ class Addtemplate(unittest.TestCase):
 
         #初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_login_info('ECS0630', '1qaz2wsx')
+        loginpage.type_login_info('12830222909', '1qaz2wsx')
         self.driver.find_element_by_id('submit').click()
         time.sleep(2)
         # 切换frame

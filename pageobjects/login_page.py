@@ -11,6 +11,7 @@ class Loginpage(BasePage):
     topNavBtn = 'x=>//*[@id="topNavBtn"]' #用户信息按钮
     skin01_logoutBtn = 'x=>//*[@id="logoutBtn"]/div/div[2]' #退出按钮
     logout = 'x=>//*[@id="g_header"]/div[1]/div/a[2]/span/span'
+    generalLogin = 'x=>//*[@id="loginForm"]/ul[1]/li[2]/a'
 
     def type_username(self,text):
         self.type(self.username,text)
@@ -30,5 +31,6 @@ class Loginpage(BasePage):
         self.click(self.logout)
 
     def type_login_info(self,username,password):
+        self.click(self.generalLogin)
         self.type(self.username, username)
         self.type(self.password, password)

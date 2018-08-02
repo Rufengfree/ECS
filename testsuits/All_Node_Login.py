@@ -46,19 +46,27 @@ class LoginCase(unittest.TestCase):
             node,username, password = rv[0],rv[1], rv[2]
             loginpage.type_login_info(username,password)
             self.driver.find_element_by_id('submit').click()
-            try:
+
+            def checked():
                 if '易打单' == loginpage.get_page_title():
                     self.assertTrue(True)
                     loginpage.skin01_logout()
-                    logger.info("%a 节点登录成功"%node)
+                    logger.info("%a 节点登录成功" % node)
                 elif '易打单 订单管理' == loginpage.get_page_title():
                     self.assertTrue(True)
                     self.driver.find_element_by_xpath('//*[@id="g_header"]/div[1]/div/a[2]/span/span').click()
-                    logger.info(" %a节点登录成功"%node)
-
+                    logger.info(" %a节点登录成功" % node)
                 else:
                     loginpage.get_windows_img()
                     self.assertTrue(False)
+
+            try:
+                if loginpage.is_element_exist('//*[@id="forget_pwd"]') == True:    # 跳过修改密码直接登录
+                    self.driver.find_element_by_xpath('//*[@id="forget_pwd"]').click()
+                    checked()
+                elif loginpage.is_element_exist('//*[@id="forget_pwd"]') == False:
+                    checked()
+
             except BaseException as e:
                 self.assertTrue(False)
 

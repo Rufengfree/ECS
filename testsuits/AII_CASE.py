@@ -15,11 +15,11 @@ suite = unittest.TestSuite()
 #suite.addTest(LoginCase('test_login_ecs'))
 # 新建订单
 suite.addTest(Createorder('test_order_create'))
-
+# 添加模板
+suite.addTest(Addtemplate('test_add_template'))
 # 打印发货
 suite.addTest(Printsend('test_print_and_send'))
-# 添加模板
-#suite.addTest(Addtemplate('test_add_template'))
+
 
 
 if __name__ == '__main__':
