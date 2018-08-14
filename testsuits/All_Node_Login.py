@@ -5,7 +5,6 @@
 # coding=utf-8
 import configparser
 import unittest
-import xlrd as xlrd
 from framework.browser_engine import BrowserEngine
 from framework.logger import Logger
 from pageobjects.login_page import Loginpage
@@ -35,9 +34,13 @@ class LoginCase(unittest.TestCase):
         logger = Logger(logger="BasePage").getlog()
         loginpage = Loginpage(self.driver)
         # 这里更改文件路径和名字
-        excel = xlrd.open_workbook("D:\\RUFENG\\ECS\\config\\data.xlsx")
+        # excel = xlrd.open_workbook("D:\\RUFENG\\ECS\\config\\data.xlsx")
         # 指定要读取的sheet
-        sheet = excel.sheet_by_name("user_info")
+        # sheet = excel.sheet_by_name("user_info")
+
+        # 打开Excel对应的sheet页
+        sheet = loginpage.open_excel('D:\\RUFENG\\ECS\\config\\data.xlsx','user_info')
+
         # 读取Sheet页行内容
         nr = sheet.nrows
 
@@ -66,6 +69,7 @@ class LoginCase(unittest.TestCase):
                     checked()
                 elif loginpage.is_element_exist('//*[@id="forget_pwd"]') == False:
                     checked()
+
 
             except BaseException as e:
                 self.assertTrue(False)

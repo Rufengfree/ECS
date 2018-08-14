@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*- 
 #Author: rufeng
+import time
 
 from framework.base_page import BasePage
 
@@ -22,13 +23,13 @@ class Ordercreate(BasePage):
     quantity = 'name=>quantity'     # 商品数量
     price = 'name=>price'    # 商品单价
     confirmCreateOrder = 'name=>confirmCreateOrder'  # 确定新建按钮
-    createSuccess = 'x=>/html/body/div[10]/h2'  # 新建成功提示
-    confirm = 'x=>/html/body/div[9]/div[7]/div/button'   # 确定，关掉新建成功提示
+    createSuccess = 'x=>/html/body/div[8]/h2'  # 新建成功提示
+    confirm = 'x=>/html/body/div[8]/div[7]/div/button'   # 确定，关掉新建成功提示
 
-    #点击手工新建按钮
+    # 点击手工新建按钮
     def click_createOrderBtn(self):
         self.click(self.createOrderBtn)
-    #输入收件人姓名
+    # 输入收件人姓名
     def type_receiverName(self,text):
         self.type(self.receiverName,text)
     def type_receiverPhone(self,text):
@@ -65,7 +66,33 @@ class Ordercreate(BasePage):
     def click_confirm(self):
         self.click(self.confirm)
 
-
+    def skin01_order_create(self,ordermsg):
+        # 初始化订单新建页面
+        # ordercreatepage = Ordercreate(self.driver)
+        time.sleep(3)
+        # 切换frame
+        frame1 = self.driver.find_element_by_id('container-i')
+        self.driver.switch_to_frame(frame1)
+        self.click_createOrderBtn()
+        time.sleep(3)
+        self.type_receiverName(ordermsg[0])
+        self.type_receiverMobile(ordermsg[1])
+        self.type_province(ordermsg[2])
+        self.type_city(ordermsg[3])
+        self.type_district(ordermsg[4])
+        self.type_receiverAddress(ordermsg[5])
+        self.driver.find_element_by_xpath('//*[@id="createOrderTPL"]/form/div[1]/div[3]/ul/li[2]/a').click()
+        self.type_goodsName(ordermsg[6])
+        self.click_confirmCreateOrder()
+        tips = self.get_tips()
+        try:
+            assert u"新建订单成功" in tips
+            print('Assertion test pass.')
+        except Exception as e:
+            print('Assertion test fail.', format(e))
+        time.sleep(1)
+        self.click_confirm()
+        time.sleep(1)
 
 
 

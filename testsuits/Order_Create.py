@@ -30,40 +30,19 @@ class Createorder(unittest.TestCase):
 
         # 初始化登录界面，并登录
         loginpage = Loginpage(self.driver)
-        loginpage.type_username('12830222909')
-        loginpage.type_password('1qaz2wsx')
-        self.driver.find_element_by_id('submit').click()
-        time.sleep(2)
-        # 初始化订单新建页面
-        ordercreatepage = Ordercreate(self.driver)
-        time.sleep(3)
-        # 切换frame
-        frame1 = self.driver.find_element_by_id('container-i')
-        self.driver.switch_to_frame(frame1)
-        ordercreatepage.click_createOrderBtn()
-        time.sleep(3)
-        ordercreatepage.type_receiverName('张无忌')
-        ordercreatepage.type_receiverMobile('14726967584')
-        ordercreatepage.type_province('湖南省')
-        ordercreatepage.type_city('长沙市')
-        ordercreatepage.type_district('岳麓区')
-        ordercreatepage.type_receiverAddress('岳麓大道569号')
-        self.driver.find_element_by_xpath('//*[@id="createOrderTPL"]/form/div[1]/div[3]/ul/li[2]/a').click()
-        ordercreatepage.type_goodsName('自动化测试自动添加商品')
-        ordercreatepage.click_confirmCreateOrder()
-        tips = ordercreatepage.get_tips()
-        try:
-            assert u"新建订单成功" in tips
-            print('Assertion test pass.')
-        except Exception as e:
-            print('Assertion test fail.', format(e))
-        time.sleep(1)
-        ordercreatepage.click_confirm()
-        time.sleep(1)
-        # 跳出frame
-        self.driver.switch_to.default_content()
-        # 退出登录
-        loginpage.skin01_logout()
+        sheet=loginpage.open_excel('D:\\RUFENG\\ECS\\config\\data.xlsx','user_info')
+        nr = sheet.nrows
+        for i in range(1, 2):
+            rv = sheet.row_values(i)
+            username, password = rv[1], rv[2]
+            loginpage.login(username,password) # 登录
+            ordercreate = Ordercreate(self.driver)
+            ordermsg = ordercreate.open_excel('D:\\RUFENG\\ECS\\config\\data.xlsx','ordermsg').row_values(1) # 读取订单数据
+            ordercreate.skin01_order_create(ordermsg) # 新建订单
+            # 跳出frame
+            self.driver.switch_to.default_content()
+            # 退出登录
+            loginpage.skin01_logout()
 
 
 if __name__=='__main__':

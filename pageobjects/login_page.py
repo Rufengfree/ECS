@@ -1,6 +1,7 @@
 # coding=utf-8
 from framework.base_page import BasePage
 from framework.logger import Logger
+import selenium
 
 
 class Loginpage(BasePage):
@@ -34,3 +35,25 @@ class Loginpage(BasePage):
         self.click(self.generalLogin)
         self.type(self.username, username)
         self.type(self.password, password)
+
+    def login(self,username,password):
+        self.click(self.generalLogin)
+        self.type(self.username, username)
+        self.type(self.password, password)
+        self.driver.find_element_by_id('submit').click()
+
+        def checked():
+            if '易打单' == self.get_page_title():
+                print("账号%a 登录成功" % username)
+            elif '易打单 订单管理' == self.get_page_title():
+                print("账号%a 登录成功" % username)
+            else:
+                self.get_windows_img()
+        try:
+            if self.is_element_exist('//*[@id="forget_pwd"]') == True:  # 跳过修改密码直接登录
+                self.driver.find_element_by_xpath('//*[@id="forget_pwd"]').click()
+                checked()
+            elif self.is_element_exist('//*[@id="forget_pwd"]') == False:
+                checked()
+        except BaseException as e:
+            pass

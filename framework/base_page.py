@@ -1,5 +1,7 @@
 # coding=utf-8
 import time
+
+import xlrd
 from selenium.common.exceptions import NoSuchElementException
 import os.path
 import selenium
@@ -194,7 +196,7 @@ class BasePage(object):
         else:
             print("找到%s个元素：%s"%(len(s),element))
             return False
-    # 已经元素已在列数，获取元素在列表所处的行数
+    # 已知元素所在列数，获取元素在列表所处的行数
     def element_row(self,text):
         list = []
         s = self.driver.find_elements_by_xpath('//*[@id="tableDiv"]/table/tbody[2]/*')
@@ -213,6 +215,12 @@ class BasePage(object):
         print(list)
         row = list.index(text)+1
         return row
+
+    def open_excel(self,path,sheet_name):
+        excel = xlrd.open_workbook(path)
+        sheet = excel.sheet_by_name(sheet_name)
+        return sheet
+
 
 
 
