@@ -48,15 +48,21 @@ class LoginCase(unittest.TestCase):
         for i in range(1, nr):
             rv = sheet.row_values(i)
             node,username, password = rv[0],rv[1], rv[2]
-            loginpage.type_login_info(username,password)
+            loginpage.type_login_info('A110140029','1qaz2wsx')
             self.driver.find_element_by_id('submit').click()
 
             def checked():
                 if '易打单' == loginpage.get_page_title():
+                    # 判断公告框是否存在，存在的话，先关闭公告
+                    if loginpage.is_element_exist('/html/body/div[2]/div[6]/div') == True:
+                        self.driver.find_element_by_xpath('/html/body/div[2]/div[6]/div/div[2]').click()
                     self.assertTrue(True)
                     loginpage.skin01_logout()
                     logger.info("%a 节点登录成功" % node)
                 elif '易打单 订单管理' == loginpage.get_page_title():
+                    # 判断公告框是否存在，存在的话，先关闭公告
+                    if loginpage.is_element_exist('/html/body/div[4]') == True:
+                        self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/a/span').click()
                     self.assertTrue(True)
                     self.driver.find_element_by_xpath('//*[@id="g_header"]/div[1]/div/a[2]/span/span').click()
                     logger.info(" %a节点登录成功" % node)

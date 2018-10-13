@@ -29,17 +29,17 @@ class OrderPage(BasePage):
     confirm_close = 'x=>//*[@id="consignResult"]/div[4]/a'
 # ------------------ 添加模板 -----------------------
     # 添加模板按钮
-    add_templete = 'x=>//*[@id="addping_div"]/div[4]/form/ul/li[3]/a/i'
+    add_templete = 'x=>//*[@id="addping_div"]/div[3]/form/ul/li[3]/a/i'
     # 选择物流公司
     Logistics_company = 'x=>//*[@id="select2-imgType_selectVal-container"]'
     # 要添加的模版名称
-    templete_name = 'x=>//label[text()="顺丰热敏180mm"]'
+    templete_name = 'x=>//label[text()="顺丰丰密(100*180)"]'
     # 运费付款方式
     paytype = 'x=>//label[text()="寄付现结"]'
     # 添加按钮
     add = 'x=>//a[@id="saveWaybillTemplateBtn"]'
     # 添加完成的确定按钮
-    button = 'x=>/html/body/div[10]/div[7]/div/button'
+    button = 'x=>//*[@class="confirm"]'
     # 关掉添加模板弹窗
     button1 = 'x=>//*[@id="expressSet_os"]/button'
 
